@@ -7,5 +7,6 @@ RUN mvn -B -DskipTests package
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /app/target/calculator-backend-1.0.0.jar app.jar
-EXPOSE 8080
+ENV SERVER_PORT=7860
+EXPOSE 7860
 ENTRYPOINT ["java", "-jar", "app.jar"]
